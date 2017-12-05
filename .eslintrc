@@ -1,0 +1,22 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": false,
+        "codeFrame": false,
+        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalDecorators": true
+        }        
+    },
+    "rules": {
+		"no-console": 0
+	},
+    "plugins": [
+        "react"
+    ]
+}

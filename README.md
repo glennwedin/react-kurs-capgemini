@@ -14,12 +14,13 @@ In this course we will use
 
 ## What you will learn
  - React
+	- JSX
 	- Component life cycle
 	- Smart vs dumb components
+	- Stateless and Statefull components
  - React Router
 	- Switch, Route, Link vs NavLink, BrowserRouter vs HashRouter vs StaticRouter
  - Redux 
  	- how to create actions, async actions and reducers
 	- when should we use redux?
-	- 
  - Simple testing with Jest
