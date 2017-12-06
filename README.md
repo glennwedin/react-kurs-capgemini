@@ -13,9 +13,11 @@ In this course we will use
  - Live Server (Visual Studio code extension)
 
 ## What you will learn
+ - Setting up a basic React project with webpack and babel
  - React
 	- JSX
 	- Component life cycle
+	- State vs props
 	- Smart vs dumb components
 	- Stateless and Statefull components
  - React Router
@@ -24,15 +26,16 @@ In this course we will use
  	- how to create actions, async actions and reducers
 	- when should we use redux?
  - Simple testing with Jest
-
+	- Testing actions and reducers
+	- Snapshot tests
 
  ## Task - Github Jobs
 	In this task, you are going to build a search engine for Github Jobs. Create a page where people can search for jobs in Github's API
 	and read more about the job they select from the list.
 
 	API: https://jobs.github.com/api
-	Sample search result: https://jobs.github.com/positions.json?search=javascript
-	Sample job listing: https://jobs.github.com/positions/12ce6cc8-d9c7-11e7-890c-fe3932b457cf.json 
+	Sample search result: https://us-central1-github-proxy-188211.cloudfunctions.net/Github-proxy?q=<searchquery>
+	Sample job listing: ttps://us-central1-github-proxy-188211.cloudfunctions.net/Github-proxy?id=<id>
 
 	- Create a search page. It should contain at least an input component, a result list-component and a result-component.
 	- Use Redux async-actions to handle the fetching of data. Remember: Redux should be the single source of truth.
