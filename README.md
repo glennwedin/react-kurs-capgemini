@@ -21,3 +21,16 @@ In this course we will use
 -   React Router - Switch, Route, Link vs NavLink, BrowserRouter vs HashRouter vs StaticRouter
 -   Redux - how to create actions, async actions and reducers - when should we use redux?
 -   Simple testing with Jest - Testing actions and reducers - Snapshot tests
+
+
+Notes...
+
+Statefull, stateless components
+React.Component and React.PureComponent
+JSX
+Composition over inheritance
+Props and State
+Redux and State
+
+
+
