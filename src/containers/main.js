@@ -7,11 +7,11 @@ class Main extends React.Component {
 		return (
 			<div>
 				<h1>This is react</h1>
-				<p>This is text</p>
 				<LifecycleComponent />
 			</div>
 		);
 	}
+
 }
 
 export default Main;

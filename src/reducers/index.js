@@ -3,9 +3,10 @@ import { combineReducers } from 'redux'
 const reducer = (state = {}, action) => {
 	switch(action.type) {
 		case 'nothing yet':
-			return Object.assign({}, state, {
-				test: "test"
-			});
+			return {
+				...state,
+				test: action.payload.test
+			}
 		default:
 			return state;
 	}

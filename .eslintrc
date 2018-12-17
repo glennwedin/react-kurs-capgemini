@@ -3,14 +3,15 @@
         "eslint:recommended",
         "plugin:react/recommended"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module",
         "allowImportExportEverywhere": false,
         "codeFrame": false,
-        "ecmaVersion": 2017,
+        "ecmaVersion": 2018,
         "ecmaFeatures": {
             "jsx": true,
-			"experimentalDecorators": true
+            "experimentalDecorators": true
         }        
     },
     "rules": {

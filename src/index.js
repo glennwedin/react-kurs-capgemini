@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import '@babel/polyfill';
 import Main from './containers/main';
+import Nettbank from './containers/nettbank';
 import store from './configureStore';
-import '!style-loader!css-loader!sass-loader!./style/style.scss';
+import './style/style.scss';
 
 const router = (
     <Provider store={store}>
@@ -14,8 +14,8 @@ const router = (
             <Switch>
                 <Route exact path="/" component={Main} />
                 <Route
-                    path="/test"
-                    render={() => <div>Dette er en underside</div>}
+                    path="/nettbank"
+                    component={Nettbank}
                 />
             </Switch>
         </HashRouter>
