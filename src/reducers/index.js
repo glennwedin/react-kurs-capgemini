@@ -1,19 +1,8 @@
-import { combineReducers } from 'redux'
-
-const reducer = (state = {}, action) => {
-	switch(action.type) {
-		case 'nothing yet':
-			return {
-				...state,
-				test: action.payload.test
-			}
-		default:
-			return state;
-	}
-}
+import { combineReducers } from 'redux';
+import main from '../reducers/main';
 
 const mainReducer = combineReducers({
-	reducer
+    main
 });
 
 export default mainReducer;

@@ -1,3 +1,20 @@
-body{
-	background-color: #eee;
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #eee;
+}
+
+.header {
+    padding: 1em;
+}
+
+.account {
+    float: left;
+    width: calc(50% - 2em);
+    margin: 2em 1em;
+}
+
+.profil {
+    margin: 5em 1em 0;
 }

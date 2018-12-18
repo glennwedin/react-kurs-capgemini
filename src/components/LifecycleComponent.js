@@ -3,44 +3,85 @@ import React from 'react';
 import { string } from 'prop-types';
 
 export default class LifecycleComponent extends React.Component {
+    static propTypes = {
+        value: string
+    };
 
-	static propTypes = {
-		value: string
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
 
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
+        this.updateState = this.updateState.bind(this);
+    }
 
-	shouldComponentUpdate(nextProps, nextState) {
-		if(nextProps.value === this.props.value) {
-			return false;
+    componentDidMount() {
+        console.log('Did mount');
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Did update', snapshot);
+    }
+
+    componentWillUnmount() {
+        console.log('Unmounting');
+    }
+
+    // Deprecated
+    componentWillMount() {
+        console.log('will mount');
+    }
+    // Deprecated
+    componentWillReceiveProps() {
+        console.log('will receive props');
+    }
+    // Deprecated
+    componentWillUpdate() {
+        console.log('will update');
+    }
+
+    /*
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextState.count !== this.state.count) {
+            return true;
 		}
-		return true;
+		return false;
 	}
+	*/
 
-    getDerivedStateFromProps(nextProps, prevState) {
-		console.log('derived state from props - component did receive new props and did update:', nextProps, prevState);
+    // exists for only one purpose. It enables a component to update its internal state as the result of changes in props.
+    /*
+	static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(
+            'derived state from props - component did receive new props and did update:',
+            nextProps,
+            prevState
+        );
+        return { test: 'test' };
 	}
+	*/
 
-	getSnapshotBeforeUpdate(prevProps, prevState) {
-		console.log('called before dom-update');
-		return 'snapshot value returned to componentDidUpdate';
+    /* 
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('called before dom-update');
+        return 'getSnapShotBeforeUpdate';
 	}
+	*/
 
-	componentDidMount() {
-		console.log('Did mount');
-	}
-
-	componentDidUpdate(prevProps, prevState, snapshot) {
-		console.log('Did update');
-	}
+    updateState() {
+        this.setState({
+            count: this.state.count + 1
+        });
+    }
 
     render() {
         return (
-            <div>LifecycleComponent</div>
-        )
+            <div>
+                <div>LifecycleComponent</div>
+                <div>Counter: {this.state.count}</div>
+                <button onClick={this.updateState}>Update state</button>
+            </div>
+        );
     }
-
 }
