@@ -13,10 +13,7 @@ const router = (
         <HashRouter>
             <Switch>
                 <Route exact path="/" component={Main} />
-                <Route
-                    path="/nettbank"
-                    component={Nettbank}
-                />
+                <Route path="/nettbank/:kundeid?" component={Nettbank} />
             </Switch>
         </HashRouter>
     </Provider>

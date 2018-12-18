@@ -62,12 +62,12 @@ export default class LifecycleComponent extends React.Component {
 	}
 	*/
 
-    /* 
+    /*
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('called before dom-update');
         return 'getSnapShotBeforeUpdate';
-	}
-	*/
+    }
+    */
 
     updateState() {
         this.setState({

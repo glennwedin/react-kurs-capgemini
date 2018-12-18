@@ -1,22 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { func, object } from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
+import { fetchAccount } from '../actions/main';
 import Konto from '../components/konto';
 import User from '../components/user';
 
-export default class Nettbank extends React.Component {
+class Nettbank extends React.Component {
+    static propTypes = {
+        fetchAccount: func,
+        profil: object,
+        history: object
+    };
+
     constructor() {
         super();
-        this.state = {
-            profil: {
-                navn: 'Arne Belinda',
-                fnr: '12345678912',
-                epost: 'arne.belinda@eika.no',
-                kontoer: [
-                    { navn: 'Brukskonto', kontonummer: '12345678', sum: 24000 },
-                    { navn: 'Sparekonto', kontonummer: '66666666', sum: 10 }
-                ]
-            }
-        };
+
+        this.goToRoute = this.goToRoute.bind(this);
+    }
+
+    componentDidMount() {
+        // kalle på redux
+        this.props.fetchAccount();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.props);
+    }
+
+    goToRoute() {
+        this.props.history.push('/');
     }
 
     render() {
@@ -25,20 +38,37 @@ export default class Nettbank extends React.Component {
                 <AppBar className="header" title={'Blakk'}>
                     Blakk Sparebank
                 </AppBar>
-                <User profil={this.state.profil} />
-                <div className="content">
-                    {this.state.profil.kontoer
-                        ? this.state.profil.kontoer.map(konto => {
-                              return (
-                                  <Konto
-                                      key={konto.kontonummer}
-                                      konto={konto}
-                                  />
-                              );
-                          })
-                        : 'Laster kontoliste...'}
-                </div>
+                {this.props.profil ? (
+                    <div>
+                        <User profil={this.props.profil} />
+                        <button onClick={this.goToRoute}>Knapp</button>
+
+                        <div className="content">
+                            {this.props.profil.kontoer
+                                ? this.props.profil.kontoer.map(konto => {
+                                      return (
+                                          <Konto
+                                              key={konto.kontonummer}
+                                              konto={konto}
+                                          />
+                                      );
+                                  })
+                                : 'Laster kontoliste...'}
+                        </div>
+                    </div>
+                ) : null}
             </div>
         );
     }
 }
+
+export default connect(
+    state => {
+        return {
+            profil: state.kontoReducer.profil
+        };
+    },
+    {
+        fetchAccount
+    }
+)(Nettbank);

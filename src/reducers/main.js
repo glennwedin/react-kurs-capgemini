@@ -1,9 +1,20 @@
-const reducer = (state = {}, action) => {
+import { FETCHING_ACCOUNT, SETTING_ACCOUNT } from '../actions/main';
+
+const initialState = {
+    done: true
+};
+const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'nothing yet':
+        case FETCHING_ACCOUNT:
             return {
                 ...state,
-                test: action.payload.test
+                done: action.done
+            };
+        case SETTING_ACCOUNT:
+            return {
+                ...state,
+                done: action.done,
+                profil: action.payload.profil
             };
         default:
             return state;
@@ -18,11 +29,7 @@ const initial = {
 };
 const reducer = (state = initial, action) => {
     switch (action.type) {
-        case 'updateReallyWrong': 
-            return {
-                ...state,
-                data: state.data.push(action.payload.value)
-            }
+        
         case 'insertToArray':
             return {
                 ...state,
